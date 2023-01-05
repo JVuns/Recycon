@@ -51,9 +51,20 @@
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                     </ul>
                 </li>
+                @guest
                 <li class="nav-item dropdown">
-                    <button class="btn btn-outline-light text-white" type="submit">Logout</button>
+                    <form action="/login">
+                        <button class="btn btn-outline-light text-white" type="submit">Login</button>
+                    </form>
                 </li>
+                @endguest
+                @auth
+                <li class="nav-item dropdown">
+                    <form action="/logout">
+                        <button class="btn btn-danger text-white" type="submit">Logout</button>
+                    </form>
+                </li>
+                @endauth
             </ul>
         </div>
     </nav>

@@ -22,4 +22,8 @@ Route::view('/home', 'home');
 
 Route::view('/cart', 'home')->middleware('validateGuest');
 
-Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
+
+Route::get('/login', [UserController::class, 'index']);
+
+Route::post('/loging', [UserController::class, 'login']);

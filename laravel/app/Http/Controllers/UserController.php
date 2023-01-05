@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -11,13 +12,31 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->intended('home');
+    }
+
     public function index()
     {
-        //
+        return view('login');
     }
 
     public function login(Request $request){
-        if(Authen)
+        $credential = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        
+        if (Auth::attempt($credential)) {
+            $request->session()->regenerate();
+            return redirect()->intended('home');
+        }
+        return back()->withErrors([
+            'email' => 'The provided credentials ',
+        ])->onlyInput('email');
     }
 
     /**
