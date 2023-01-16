@@ -47,14 +47,19 @@
                         Profile
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="/edit-profile">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="/edit-password">Edit Password</a></li>
                     </ul>
                 </li>
                 @guest
                 <li class="nav-item dropdown">
                     <form action="/login">
                         <button class="btn btn-outline-light text-white" type="submit">Login</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <form action="/register">
+                        <button class="btn btn-outline-light text-white" type="submit">Register</button>
                     </form>
                 </li>
                 @endguest

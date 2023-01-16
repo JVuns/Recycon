@@ -19,11 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home');
 
 Route::view('/home', 'home');
-
 Route::view('/cart', 'home')->middleware('validateGuest');
 
 Route::get('/logout', [UserController::class, 'logout']);
-
 Route::get('/login', [UserController::class, 'index']);
+Route::get('/register', [UserController::class, 'register']);
+Route::get('/edit-profile', [UserController::class, 'editProfileView']);
+Route::get('/edit-password', [UserController::class, 'editPasswordView']);
+Route::post('/edit-profile', [UserController::class, 'editProfile']);
+Route::post('/edit-password', [UserController::class, 'editPassword']);
 
 Route::post('/loging', [UserController::class, 'login']);
+Route::post('/register', [UserController::class, 'registerUser']);
